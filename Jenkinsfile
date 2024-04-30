@@ -12,7 +12,7 @@ pipeline {
                   sh ''' 
                   docker ps
                   aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $ECR_REPOSITORY:$CONTAINER_NAME
-                  echo "Building the Docker image..."
+                  echo "Building the Docker image...."
                   docker build -t $ECR_REPOSITORY:$CONTAINER_NAME ./app/
                   docker image  prune -f
                   docker image ls
